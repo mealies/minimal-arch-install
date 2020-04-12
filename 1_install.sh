@@ -4,7 +4,7 @@ hostname=""
 encryption_passphrase=""
 root_password=""
 continent_city=""
-swap_size="16"
+swap_size=""
 
 echo "Updating system time"
 timedatectl set-ntp true
