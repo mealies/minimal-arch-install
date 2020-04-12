@@ -1,0 +1,1 @@
+# minimal-arch-install
