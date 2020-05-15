@@ -58,3 +58,10 @@ z
 y
 y
 ```
+
+### Set closest Mirrors
+
+```
+pacman -S reflector
+reflector --country France --country Germany --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+```
