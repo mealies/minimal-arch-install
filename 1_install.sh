@@ -42,7 +42,7 @@ yes | mkswap /dev/vg0/swap
 swapon /dev/vg0/swap
 
 echo "Installing Arch Linux"
-yes '' | pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware lvm2 device-mapper e2fsprogs intel-ucode cryptsetup mesa networkmanager curl man-db man-pages neovim git diffutils
+yes '' | pacstrap /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware lvm2 device-mapper e2fsprogs intel-ucode cryptsetup mesa networkmanager netctl wpa_supplicant dialog dhcpcd curl man-db man-pages neovim git diffutils
 
 echo "Generating fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -59,7 +59,7 @@ echo "LANG=en_GB.UTF-8" >> /etc/locale.conf
 locale-gen
 
 echo "Adding persistent keymap"
-echo "KEYMAP=uk" > /etc/vconsole.conf
+echo "KEYMAP=us" > /etc/vconsole.conf
 
 echo "Setting hostname"
 echo $hostname > /etc/hostname
@@ -120,10 +120,6 @@ END
 
 echo "Enabling periodic TRIM"
 systemctl enable fstrim.timer
-
-echo "Enabling NetworkManager"
-systemctl enable NetworkManager
-
 EOF
 
 umount -R /mnt
